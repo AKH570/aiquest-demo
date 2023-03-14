@@ -35,7 +35,7 @@
 
     </div>
   </section><!-- End Counts Section -->
-  <!-- ======= Features Section ======= -->
+  <!-- ======= Features Section ======= 
   <section id="features" class="features">
     <div class="container" data-aos="fade-up">
 
@@ -115,39 +115,39 @@
       </div>
 
     </div>
-  </section><!-- End Features Section -->
-
+  </section>   =====End Features Section -->
+         
   <!-- ======= Popular Courses Section ======= -->
   <section id="popular-courses" class="courses">
     <div class="container" data-aos="fade-up">
-
           <div class="section-title">
             <h2>Courses</h2>
             <p>Popular Courses</p>
           </div>
     
       <div class="row" data-aos="zoom-in" data-aos-delay="100">
-        {% for p in product %}
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+        {% for p in courses %}
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch"><br>
           <div class="course-item">
             <img src="{{p.prod_img.url}}" class="img-fluid" alt="...">
             <div class="course-content">
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4>{{p.product_name}}</h4>
-                <p class="price">BDT {{p.price}}</p>
+                <h4>{{p.course_name}}</h4>
+                <p class="price">BDT{{p.price}}</p>
               </div>
-              <h3><a href="course-details.html">{{p.product_name}}</a></h3>
+              <h3><a href="course-details.html">{{p.course_name}}</a></h3>
               <p>{{p.description}}</p>
               <div class="trainer d-flex justify-content-between align-items-center">
                 <div class="trainer-profile d-flex align-items-center">
-                  <img src="{% static 'assets/img/sohanur-rahman-1.jpg' %}" class="img-fluid" alt="">
-                  <span>Abu Noman</span>
+                  <img src="{{p.teachers.profile_pic.url}}" class="img-fluid" alt="">
+                  <span>{{p.teachers.name}}</span>
                 </div>
+                <!--
                 <div class="trainer-rank d-flex align-items-center">
                   <i class="bx bx-user"></i>&nbsp;50
                   &nbsp;&nbsp;
                   <i class="bx bx-heart"></i>&nbsp;65
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
@@ -166,10 +166,10 @@
           <div class="member">
             <img src="{{i.profile_pic.url}}" class="img-fluid" alt="">
             <div class="member-content">
-              <h4>Abu Noman</h4>
-              <span>Django Expert</span>
+              <h4>{{i.name}}</h4>
+              <span>{{i.sub_expart}}</span>
               <p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                {{i.profile_details}}
               </p>
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>

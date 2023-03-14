@@ -1,0 +1,38 @@
+
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'common/hero.html' %}
+
+<div class="container">
+    <div class="row my- 3">
+        <div class="col-sm-6 offset-sm-3">
+            <h3>Student Registration Form</h3>
+            <hr>
+                <form action="" method="POST" novalidate class="shadow p-3">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p{% if message.tags %} class="alert alert-{{message.tags}} mb-5"{% endif %}>{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% csrf_token %}
+                    {% for f in form %}
+                    <div class="form-group mb-3">
+                        {{f.label_tag}}{{f}}
+                        <small>{{f.errors|striptags}}</small>
+                    </div>
+                    {% endfor %}
+                    <br>
+                    <input type="submit" value="Submit" class="btn btn-info">
+                    <br>
+                    <div class="text-center text-primary fw-bold">
+                        <small>Existing user?<a href="#" class="text-info">Login</a></small>
+                    </div>
+                </form>
+                    
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
