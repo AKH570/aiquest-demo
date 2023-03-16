@@ -28,3 +28,13 @@ class CourseList(models.Model):
     
     def __str__(self):
         return self.course_name
+
+class AboutPage(models.Model):
+    title =models.CharField(max_length=200)
+    descriptions=models.TextField(max_length=300)
+    title_img=models.ImageField(upload_to='aboutimg')
+    testmonial_text=models.TextField(max_length=200)
+    testmonial_img=models.ImageField(upload_to='testmimg')
+    
+    def __str__(self):
+        return self.title
