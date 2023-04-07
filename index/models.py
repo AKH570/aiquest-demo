@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -17,7 +18,8 @@ class Expert(models.Model):
     date_of_joinig = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return str(self.id)
+    
 class CourseList(models.Model):
     course_name = models.CharField(max_length=100)
     price = models.FloatField()
@@ -27,7 +29,7 @@ class CourseList(models.Model):
     prod_img = models.ImageField(upload_to='courseimg')
     
     def __str__(self):
-        return self.course_name
+        return str(self.id)
 
 class AboutPage(models.Model):
     title =models.CharField(max_length=200)
@@ -37,4 +39,11 @@ class AboutPage(models.Model):
     testmonial_img=models.ImageField(upload_to='testmimg')
     
     def __str__(self):
-        return self.title
+        return self.id
+class Cart(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    product = models.ForeignKey(CourseList,on_delete=models.CASCADE)
+    quantity=models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return self.id

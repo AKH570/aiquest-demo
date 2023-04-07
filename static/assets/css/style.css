@@ -187,12 +187,12 @@ h6 {
 * Desktop Navigation 
 */
 .navbar {
-  padding: 0;
+  padding:0;
 }
 
 .navbar ul {
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding: 5px;
   display: flex;
   list-style: none;
   align-items: center;

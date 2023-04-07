@@ -1,0 +1,36 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'common/breadcrumbs.html' %}
+
+<div class="container my-5">
+    <div class="row" data-aos="flip-up">
+        <div class="col-sm-6 text-center align-self-center">
+            <img src="{{course.prod_img.url}}" alt="" class="img-fluid img-thumbnail">
+        </div>
+        <div class="col-sm-5 offset-sm-1">
+            <h2>Title: {{course.course_name}}</h2>
+            <hr>
+            <p>{{course.description}}</p> <br>
+            <h4>Tk.{{course.price}} <small
+                    class="fw-light text-decoration-line-through">{{course.discount}}</small></h4> <br>
+            {% if already_in_cart %}
+            <a href="{% url 'infocart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">Go to cart</a>
+            {% else %}
+            <form action="/add-to-cart" class="d-inline">
+                <input type="hidden" name="prod_id" value="{{course.id}}" id="prod_id">
+                <button type="submit" class="btn btn-info shadow px-5 py-2">Add to Cart</button>
+            </form>
+            {% endif %}
+            <a href="#" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
+            <h5 class="mt-5">Available Offers</h5>
+            <ul>
+                <li>Bkash Offer 5% Unlimited Cashback on Payment</li>
+                <li>Special Price Get extra Tk.5000 off (price inclusive of discount)</li>
+                <li>Partner Offer Tk. 1000 Gift Card on Every 1000th Transaction with Bkash, Nagad.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

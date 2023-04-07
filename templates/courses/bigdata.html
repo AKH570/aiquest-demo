@@ -5,43 +5,38 @@
 {% include 'common/breadcrumbs.html' %}
 <!-- ======= Cource Details Section ======= -->
 <section id="course-details" class="course-details">
-  <div class="container" data-aos="fade-up">
+  <div class="container">
 
-    <div class="row">
+    <div class="row shadow p-2" data-aos="fade-right">
       {% for i in c_name %}
       <div class="col-lg-8">
         <img src="{{ i.prod_img.url}}" class="img-fluid" alt="">
-        <h3>{{i.course_name}}</h3>
-        <p>
-          {{i.description}}
-        </p>
+        <p>{{i.description}}</p>
       </div>
       <div class="col-lg-4">
-
+        <div class="course-info d-flex justify-content-between align-items-center">
+          <h4>Course Title: {{i.course_name}}</h4>
+        </div>
         <div class="course-info d-flex justify-content-between align-items-center">
           <h5>Trainer</h5>
-          <p><a href="#">{{i.teachers}}</a></p>
+          <p><a href="#">{{i.teachers.name}}</a></p>
         </div>
-
         <div class="course-info d-flex justify-content-between align-items-center">
           <h5>Course Fee</h5>
-          <p>BDT{{i.price}}</p>
+          <p>BDT {{i.price}}</p>
         </div>
 
         <div class="course-info d-flex justify-content-between align-items-center">
           <h5>Available Seats</h5>
           <p>30</p>
         </div>
-
         <div class="course-info d-flex justify-content-between align-items-center">
           <h5>Schedule</h5>
           <p>5.00 pm - 7.00 pm</p>
         </div>
-
       </div>
       {% endfor %}
     </div>
-
   </div>
 </section><!-- End Cource Details Section -->
 
