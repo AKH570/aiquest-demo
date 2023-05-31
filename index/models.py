@@ -39,11 +39,45 @@ class AboutPage(models.Model):
     testmonial_img=models.ImageField(upload_to='testmimg')
     
     def __str__(self):
-        return self.id
+        return str(self.id)
+    
 class Cart(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     product = models.ForeignKey(CourseList,on_delete=models.CASCADE)
     quantity=models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
+    
+
+class Customer(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    district = models.CharField(max_length=200)
+    thana = models.CharField(max_length=100)
+    villorroad = models.CharField(max_length=100)
+    country=models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
+    zipcode = models.CharField(max_length=10,blank=True,null=True)
+
+    def __str__(self):
+        return str(self.id)
+
+
+class Contact(models.Model):
+    location=models.CharField(max_length=300)
+    email=models.CharField(max_length=100)
+    phone=models.CharField(max_length=100)
+    subject=models.ForeignKey(CourseList,on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return str(self.subject)
+    
+class ContactMsg(models.Model):
+    name =models.CharField(max_length=100)
+    email=models.EmailField(max_length=100)
+    course_name =models.ForeignKey(Expert,on_delete=models.CASCADE)
+    message=models.TextField(max_length=500)
+
+    def __str__(self) -> str:
+        return str(self.name)

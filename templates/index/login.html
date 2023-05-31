@@ -4,10 +4,10 @@
 {% block content %}
 {% include 'common/hero.html' %}
 
-<div class="container">
+<div class="container my-3">
     <div class="row my- 3">
         <div class="col-sm-6 offset-sm-3">
-            <h3>Login Here</h3>
+            <h3 class="text-center my-3">Login Here</h3>
             <hr>
                 <form action="" method="POST" novalidate class="shadow p-4">
                     {% csrf_token %}
@@ -17,8 +17,12 @@
                         <small>{{f.errors|striptags}}</small>
                     </div>
                     {% endfor %}
+                    <div class="text-left text-primary fw-bold">
+                        <small><a href="{% url 'registration' %}" class="text-info">Want to create account</a></small>
+                    </div>
                     <br>
-                    <input type="submit" value="Login" class="btn btn-info mt-2">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                    <input type="submit" value="Login" class="btn btn-success"> </div>
                     <br>
                     <div class="text-center text-primary fw-bold">
                         <small>Forget password?<a href="#" class="text-info">Login</a></small>

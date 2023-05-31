@@ -14,7 +14,7 @@
   <!-- Favicons -->
   <link href="{% static 'assets/img/aiQuest-Logo.png' %}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -27,10 +27,11 @@
   <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
  
-  <!--FontAwesome CSS-->
+  <!--FontAwesome CSS
   <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
   </head>
   <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+  -->
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 
@@ -81,26 +82,21 @@
               <li><a href="#">Change Password</a></li>
             </ul>
           </li>
-          <a href="{% url 'infocart' %}" class="widget-header pl-3 ml-3">
-						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
-						<span class="badge badge-pill badge-danger notify">{{cart_count}}</span>
-					</a>
+          <a href="{% url 'infocart' %}">Cart</a>
           {% else %}
             <li class="dropdown"><a href="#"><span>Login/Registration</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="{% url 'registration' %}">Registration</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
               </ul>
             </li>
             {% endif %}
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="courses.html" class="get-started-btn">Get Started</a>
+      <a href="{% url 'index' %}" class="get-started-btn">Buy More!</a>
     </div>
   </header><!-- End Header -->
   {% block content %}
@@ -155,14 +151,14 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>AiQuest</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>Abir H Khandokar</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
-          Designed by <a href="{% url 'index' %}">AiQuest</a>
+          Designed by <a href="{% url 'index' %}">AHK</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">

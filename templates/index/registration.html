@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row my- 3">
         <div class="col-sm-6 offset-sm-3">
-            <h3>Student Registration Form</h3>
+            <h3 class="text-center my-3">Registration Form</h3>
             <hr>
                 <form action="" method="POST" novalidate class="shadow p-3">
                     {% if messages %}
@@ -24,10 +24,12 @@
                     </div>
                     {% endfor %}
                     <br>
-                    <input type="submit" value="Submit" class="btn btn-info">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <input type="submit" value="Submit" class="btn btn-info">
+                    </div>
                     <br>
                     <div class="text-center text-primary fw-bold">
-                        <small>Existing user?<a href="#" class="text-info">Login</a></small>
+                        <small>Existing user?<a href="{% url 'login' %}" class="text-info">Login</a></small>
                     </div>
                 </form>
                     

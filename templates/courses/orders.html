@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs" data-aos="fade-in">
+    <div class="container">
+      <h2>Orders Details</h2>
+    </div>
+  </div><!-- End Breadcrumbs -->
+<div class="container my-5">
+    <div class="row">
+        <h3>Hi, <span class="text-capitalize">{{request.user}}</span></h3>
+          <p>Your order are successfully proccessed</p>
+      </div>
+</div>
+  {% endblock content %}

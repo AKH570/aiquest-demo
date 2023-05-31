@@ -24,4 +24,10 @@ urlpatterns = [
     path('pluscart/',views.plus_cart),
     path('minuscart/',views.minus_cart),
     path('removecart/',views.remove_cart),
+    path('checkout/',views.checkout,name='checkout'),
+    path('address/',views.AddressView.as_view(),name='address'),
+    path('paymentdone/',views.payment,name='pament'),
+    #path('contact/',views.contact,name='contact'),
+    path('contact/',views.ContactUs.as_view(),name='contact'),
+    
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

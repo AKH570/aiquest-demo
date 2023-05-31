@@ -1,0 +1,61 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs" data-aos="fade-in">
+    <div class="container">
+      <h2>Checkout Details</h2>
+    </div>
+</div><!-- End Breadcrumbs -->
+  <div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <h4>Order Summary</h4>
+            <hr>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5>Course/s:</h5>
+                    <ul class="list-inline">
+                    {% for cart in carts %} 
+                    <li class="list-inline-item">{{cart.product.course_name}},</li>
+                    {% endfor %}
+                    </ul>
+                    <p class="fw-bold">Total courses: {{totalcourses}}</p>
+                    <p class="fw-bold">Total Price: {{totalamount}}</p>
+                </div>
+            </div>
+            <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe!
+                Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium
+                adipisci nisi nihil in et quis?</small>
+        </div>
+        <div class="col-sm-4 offset-sm-1">
+            <h4>Billing address</h4>
+            <hr>
+            <div>
+                <h5 class="text-left">Personal Details</h5>
+                <ul>
+                    <li class="list-group-flush">Name: {{user}}</li>
+                    <li class="list-group-flush">Email: {{user.email}}</li>
+                </ul>
+                
+            </div>
+            <div class="container">
+                    {% if custaddr_already_exist %}
+                    {% for adr in customer %}
+                    <div class="card-body"> 
+                        <h5 class="text-left">Address Details:</h5><hr>                
+                        <h6>{{adr.villorroad}}</h6>
+                        <p>{{adr.thana}},{{adr.district}},{{adr.country}},{{adr.zipcode}}</p>
+                        <p>Phone: {{adr.phone}}</p>
+                        <a href="{% url 'pament' %}" class="btn btn-warning shadow px-5 py-2 ms-4">Continue</a>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <h5>you have no billing address. Please fillup address</h5>
+                    <a href="{% url 'address' %}" class="btn btn-info shadow px-5 py-2 ms-4">Address</a>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
