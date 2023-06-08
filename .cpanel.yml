@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/abirhkha/public_html/
+    - export DEPLOYPATH=/home/abirhkha/repositories/
     - /bin/cp -R images $DEPLOYPATH
