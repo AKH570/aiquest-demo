@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/abirhkha/
-    - /bin/cp -R images $DEPLOYPATH
+    - /bin/cp * $DEPLOYPATH
