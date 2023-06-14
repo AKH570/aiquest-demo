@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/abirhkha/
+    - export DEPLOYPATH=/home/abirhkha/repositories/
     - /bin/cp * $DEPLOYPATH
